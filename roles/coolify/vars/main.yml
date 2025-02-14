@@ -1,0 +1,5 @@
+---
+coolify_env:
+  COOLIFY_APP_ID: "my-coolify-instance"
+  COOLIFY_PORT: "3000"
+  DOCKER_API_VERSION: "1.41"

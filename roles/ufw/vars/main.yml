@@ -1,0 +1,12 @@
+---
+ufw_policy:
+  incoming: deny
+  outgoing: allow
+
+ufw_ports:
+  - { port: 22, proto: tcp }
+  - { port: 80, proto: tcp }
+  - { port: 443, proto: tcp }
+  - { port: 9100, proto: tcp }
+  - { port: 9090, proto: tcp }
+  - { port: 3000, proto: tcp }

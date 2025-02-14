@@ -1,0 +1,18 @@
+---
+new_user: deploy
+ssh_public_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+coolify_repo: "https://github.com/coollabsio/coolify.git"
+coolify_dir: "/opt/coolify"
+
+node_exporter_version: "1.6.0"
+prometheus_version: "2.45.0"
+grafana_version: "10.2.0"
+
+ufw_allowed_ports:
+  - 22    # SSH
+  - 80    # HTTP
+  - 443   # HTTPS
+  - 9100  # Node Exporter
+  - 9090  # Prometheus
+  - 3000  # Grafana

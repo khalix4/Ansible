@@ -1,0 +1,14 @@
+---
+- name: Update and upgrade the system
+  apt:
+    update_cache: yes
+    upgrade: dist
+
+- name: Install essential packages
+  apt:
+    name:
+      - nginx
+      - git
+      - docker.io
+      - docker-compose
+    state: present

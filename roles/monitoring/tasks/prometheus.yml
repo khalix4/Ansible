@@ -1,0 +1,8 @@
+---
+- name: Download and install Prometheus
+  hosts: all
+  tasks:
+    - name: Download Prometheus
+      ansible.builtin.get_url:
+        url: "https://github.com/prometheus/prometheus/releases/latest/download/prometheus-2.45.0.linux-amd64.tar.gz"
+        dest: "/tmp/prometheus.tar.gz"

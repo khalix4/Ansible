@@ -1,0 +1,10 @@
+---
+- name: Provision a secure server with monitoring and Coolify
+  hosts: all
+  become: yes
+  roles:
+    - common
+    - docker
+    - ufw
+    - monitoring
+    - coolify

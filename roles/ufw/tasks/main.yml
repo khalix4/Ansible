@@ -1,0 +1,23 @@
+---
+- name: Reset UFW to default settings
+  command: ufw --force reset
+  changed_when: false
+
+- name: Set UFW default policies
+  ufw:
+    state: enabled
+    policy: "{{ item.value }}"
+  loop:
+    - { key: "incoming", value: "{{ ufw_policy.incoming }}" }
+    - { key: "outgoing", value: "{{ ufw_policy.outgoing }}" }
+
+- name: Allow required ports
+  ufw:
+    rule: allow
+    port: "{{ item.port }}"
+    proto: "{{ item.proto }}"
+  loop: "{{ ufw_ports }}"
+
+- name: Enable UFW
+  ufw:
+    state: enabled

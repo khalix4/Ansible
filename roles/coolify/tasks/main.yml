@@ -1,0 +1,16 @@
+---
+- name: Clone Coolify repository
+  git:
+    repo: "{{ coolify_repo }}"
+    dest: "{{ coolify_dir }}"
+    update: yes
+
+- name: Create Coolify environment file
+  template:
+    src: coolify.env.j2
+    dest: "{{ coolify_dir }}/.env"
+
+- name: Start Coolify using Docker Compose
+  command: docker compose up -d
+  args:
+    chdir: "{{ coolify_dir }}"
